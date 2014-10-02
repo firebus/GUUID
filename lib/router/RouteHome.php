@@ -35,6 +35,9 @@ class RouteHome implements IRoute {
 		To register or unregister a UID with GUID, use the guid endpoint. Like identify, you can provide a UID to register, or
 		have GUID provide you with one.
 	</li>
+	<li>
+		GUIDs should be passed with hyphens and curly-braces, e.g. {33BA55AF-3A2D-033D-BD16-64247A1722C6}
+	</li>
 </ul>
 		
 <h2>API endpoints</h2>
