@@ -11,9 +11,9 @@ If everyone uses GUID and is conscientious about releasing their UIDs when they 
 
 ## Using GUID
 
-* To use GUID you need a unique identifier that will indentify all the UIDs you register. This ID is also a UID! You can use your
-  own, or ask GUID to provide one (if possible, a recycled GUID will be provided!). Use the identify end-point to indentify
-  yourself
+* To use GUID you need a unique identifier that will identify all the UIDs you register. This ID is also a UID! You can use your
+  own, or ask GUID to provide one (if possible, a recycled GUID will be provided!). Use the identify end-point to identify
+  yourself.
 
 * To register or unregister a UID with GUID, use the guid endpoint. Like identify, you can provide a UID to register, or have
   GUID provide you with one.
@@ -23,21 +23,21 @@ If everyone uses GUID and is conscientious about releasing their UIDs when they 
 ## API endpoints
 
 * GET /api/1.0/identify
-** Provision a new identifier - GUID will provide the UID
+** Provision a new identifier - GUID will provide the UID.
 * PUT /api/1.0/identify/UID
-** Register your own UID as an identifier
+** Register your own UID as an identifier.
 * GET /api/1.0/guid?identity=UID
 ** Register a new UID - GUID will provide the UID.
 * PUT /api/1.0/guid/UID?identity=UID
-** Register your own UID
+** Register your own UID.
 * DELETE /api/1.0/guid/UID?identity=UID
-** Release a GUID you've previously registered
+** Release a GUID you've previously registered.
 
 ## API Responses
 
 * On success, you'll receive a JSON-encoded array containing the following keys
-** guid: the guid you've identified as or registered or released
-** use_count: the number of times this guid has been used!
+** guid: the guid you've identified as or registered or released.
+** use_count: the number of times this guid has been used.
 * On error, you'll receive a JSON-encoded array containing the following keys
 ** error: a helpful error message.
 

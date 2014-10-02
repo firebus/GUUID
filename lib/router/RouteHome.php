@@ -27,9 +27,9 @@ class RouteHome implements IRoute {
 
 <ul>
     <li>
-        To use GUID you need a unique identifier that will indentify all the UIDs you register. This ID is also a UID! You can
+        To use GUID you need a unique identifier that will identify all the UIDs you register. This ID is also a UID! You can
 		use your own, or ask GUID to provide one (if possible, a recycled GUID will be provided!). Use the identify end-point to
-		indentify yourself
+		identify yourself.
 	</li>
 	<li>
 		To register or unregister a UID with GUID, use the guid endpoint. Like identify, you can provide a UID to register, or
@@ -46,13 +46,13 @@ class RouteHome implements IRoute {
 	<dt>GET /api/1.0/identify</dt>
 	<dd>Provision a new identifier.</dd>
 	<dt>PUT /api/1.0/identify/UID</dt>
-	<dd>Register your own UID as an identifier</dd>
+	<dd>Register your own UID as an identifier.</dd>
 	<dt>GET /api/1.0/guid?identity=UID</dt>
 	<dd>Register a new UID - GUID will provide it.</dd>
 	<dt>PUT /api/1.0/guid/UID?identity=UID</dt>
-	<dd>Register your own UID</dt>
+	<dd>Register your own UID.</dt>
 	<dt>DELETE /api/1.0/guid/UID?identity=UID</dt>
-	<dd>Release a GUID you've previously registered</dd>
+	<dd>Release a GUID you've previously registered.</dd>
 </dl>
 
 <h2>API Responses</h2>
@@ -61,8 +61,8 @@ class RouteHome implements IRoute {
 	<li>
 		On success, you'll receive a JSON-encoded array containing the following keys
 		<ul>
-			<li>guid: the guid you've identified as or registered or released</li>
-			<li>use_count: the number of times this guid has been used!</li>
+			<li>guid: the guid you've identified as or registered or released.</li>
+			<li>use_count: the number of times this guid has been used.</li>
 		</ul>
 	</li>
 	<li>
