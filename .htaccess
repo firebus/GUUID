@@ -1,2 +1,4 @@
+Options +FollowSymlinks
 RewriteEngine on
-RewriteRule ^/.*$ /index.php [PT,QSA]
+RewriteCond %{REQUEST_URI}  !/index.php
+RewriteRule ^.*$ /index.php [PT,QSA]

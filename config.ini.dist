@@ -2,4 +2,4 @@ mysql_host = localhost
 mysql_username = guid
 mysql_password = changeme
 mysql_database = guid
-path = /
+path_prefix = /

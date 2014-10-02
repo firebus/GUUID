@@ -16,7 +16,6 @@ class Database {
 		$sth->execute(array($guid, $identity, $identity));
 		
 		$row = $this->getRow($guid);
-		print_r($row);
 		return array('guid' => $guid, 'use_count' => $row['use_count']);
 	}
 	
