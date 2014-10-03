@@ -2,16 +2,16 @@
 
 require_once('IRoute.php');
 
-class RouteGuid implements IRoute {
+class RouteUuid implements IRoute {
 	
 	public function register() {
 		return 'api/1.0/guid';
 	}
 	
-	public function execute($request, $database, $guid) {
+	public function execute($request, $database, $uuid) {
 		switch ($request->method) {
 			case 'GET':
-				$id = $guid->guid();
+				$id = $uuid->uuid();
 				$identity = $request->parameters['identity'];
 				$result = $database->registerRow($id, $identity);
 				break;

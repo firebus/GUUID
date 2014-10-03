@@ -9,32 +9,32 @@ class Database {
 		$this->dbh = new PDO($dsn, $config->config['mysql_username'], $config->config['mysql_password']);
 	}
 	
-	public function registerRow($guid, $identity) {
-		$sth = $this->dbh->prepare("INSERT INTO guid (created_time, guid, identity)"
+	public function registerRow($uuid, $identity) {
+		$sth = $this->dbh->prepare("INSERT INTO guuid (created_time, uuid, identity)"
 			. " VALUES (CURRENT_TIMESTAMP, ?, ?)"
 			. " ON DUPLICATE KEY UPDATE identity = ?, use_count = use_count + 1");
-		$sth->execute(array($guid, $identity, $identity));
+		$sth->execute(array($uuid, $identity, $identity));
 		
-		$row = $this->getRow($guid);
-		return array('guid' => $guid, 'use_count' => $row['use_count']);
+		$row = $this->getRow($uuid);
+		return array('uuid' => $uuid, 'use_count' => $row['use_count']);
 	}
 	
-	public function releaseRow($guid, $identity) {
-		$sth = $this->dbh->prepare("UPDATE guid SET identity = '' WHERE guid = ? AND identity = ?");
-		$sth->execute(array($guid, $identity));
+	public function releaseRow($uuid, $identity) {
+		$sth = $this->dbh->prepare("UPDATE guuid SET identity = '' WHERE uuid = ? AND identity = ?");
+		$sth->execute(array($uuid, $identity));
 		
-		$row = $this->getRow($guid);
-		return array('guid' => $guid, 'use_count' => $row['use_count']);
+		$row = $this->getRow($uuid);
+		return array('guid' => $uuid, 'use_count' => $row['use_count']);
 	}
 
-	public function getRow($guid) {
-		$sth = $this->dbh->prepare("SELECT * FROM guid WHERE guid = ?");
-		$sth->execute(array($guid));
+	public function getRow($uuid) {
+		$sth = $this->dbh->prepare("SELECT * FROM guuid WHERE uuid = ?");
+		$sth->execute(array($uuid));
 		return $sth->fetch();
 	}
 	
-	public function guid() {
-		$sth = $this->dbh->query("SELECT guid FROM guid WHERE identity = '' ORDER BY use_count DESC LIMIT 1");
+	public function uuid() {
+		$sth = $this->dbh->query("SELECT uuid FROM guuid WHERE identity = '' ORDER BY use_count DESC LIMIT 1");
 		return $sth->fetch();		
 	}
 }

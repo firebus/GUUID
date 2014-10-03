@@ -10,7 +10,8 @@ class Request{
 	private $parameters;
 	
 	public function __construct($config) {
-		$this->path = preg_replace('/^' . preg_quote($config->config['path_prefix'], '/') . '/', '', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+		$this->path = preg_replace(
+			'/^' . preg_quote($config->config['path_prefix'], '/') . '/', '', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 		$this->method = $_SERVER['REQUEST_METHOD'];
 		if (strpos($this->path, 'api') === 0) {
 			$pathParts = explode('/', $this->path);

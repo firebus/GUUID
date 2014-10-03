@@ -10,9 +10,9 @@ $request = new Request($config);
 require_once('lib/database/Database.php');
 $database = new Database($config);
 
-require_once('lib/guid/Guid.php');
-$guid = new Guid($database);
+require_once('lib/uuid/Uuid.php');
+$uuid = new Uuid($database);
 
 require_once('lib/router/Router.php');
-$router = new Router(array('Home', 'Guid', 'Identify'));
-print $router->route($request, $database, $guid);
+$router = new Router(array('Home', 'Uuid', 'Identify'));
+print $router->route($request, $database, $uuid);

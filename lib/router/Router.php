@@ -16,7 +16,7 @@ class Router {
 		}
 	}
 	
-	public function route($request, $database, $guid) {
+	public function route($request, $database, $uuid) {
 		// Find a matching path
 		foreach ($this->routeRegistry as $route) {
 			if (strpos($request->path, $route['path']) === 0) {
@@ -29,9 +29,9 @@ class Router {
 		}
 
 		if (isset($match)) {
-			$return = $match['route']->execute($request, $database, $guid);
+			$return = $match['route']->execute($request, $database, $uuid);
 		} elseif (isset($default)) {
-			$return = $default['route']->execute($request, $database, $guid);
+			$return = $default['route']->execute($request, $database, $uuid);
 		} else {
 			$return = "No route found for this path\n";
 		}

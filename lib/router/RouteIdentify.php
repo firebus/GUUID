@@ -8,10 +8,10 @@ class RouteIdentify implements IRoute {
 		return 'api/1.0/identify';
 	}
 	
-	public function execute($request, $database, $guid) {
+	public function execute($request, $database, $uuid) {
 		switch ($request->method) {
 			case 'GET':
-				$id = $guid->guid();
+				$id = $uuid->uuid();
 				$result = $database->registerRow($id, 'IDENTITY');
 				break;
 			case 'PUT':

@@ -8,35 +8,35 @@ class RouteHome implements IRoute {
 		return 'DEFAULT';
 	}
 	
-	public function execute($request, $database, $guid) {
+	public function execute($request, $database, $uuid) {
 		return <<<EOT
-<h1>GUID</h1>
+<h1>GUUID</h1>
 	
-<div>GUID is the Green Unique Identifier System.</div>
+<div>GUUID is the Green Unique Identifier System.</div>
 
 <div>
 	The current use of GUIDs and UUIDs is very wasteful.<br>
-	Most developers generate UIDs as needed and then discard them without thinking.<br>
-	GUID is an API that lets developers register their UIDs, and then release them when they are no longer in use.<br>
-	When a new UID is needed, developers can request a new one from GUID, and GUID will provision a recycled UID if possible.<br>
-	If everyone uses GUID and is conscientious about releasing their UIDs when they are no longer in use, we can greatly reduce
+	Most developers generate UUIDs as needed and then discard them without thinking.<br>
+	GUUID is an API that lets developers register their UUIDs, and then release them when they are no longer in use.<br>
+	When a new UUID is needed, developers can request a new one from GUUID, and GUUID will provision a recycled UUID if possible.<br>
+	If everyone uses GUUID and is conscientious about releasing their UUIDs when they are no longer in use, we can greatly reduce
 	waste.<br>
 </div>
 		
-<h2>Using GUID</h2>
+<h2>Using GUUID</h2>
 
 <ul>
     <li>
-        To use GUID you need a unique identifier that will identify all the UIDs you register. This ID is also a UID! You can
-		use your own, or ask GUID to provide one (if possible, a recycled GUID will be provided!). Use the identify end-point to
+        To use GUUID you need a unique identifier that will identify all the UUIDs you register. This ID is also a UUID! You can
+		use your own, or ask GUUID to provide one (if possible, a recycled GUUID will be provided!). Use the identify end-point to
 		identify yourself.
 	</li>
 	<li>
-		To register or unregister a UID with GUID, use the guid endpoint. Like identify, you can provide a UID to register, or
-		have GUID provide you with one.
+		To register or unregister a UUID with GUUID, use the guid endpoint. Like identify, you can provide a UUID to register, or
+		have GUUID provide you with one.
 	</li>
 	<li>
-		GUIDs should be passed with hyphens and curly-braces, e.g. {33BA55AF-3A2D-033D-BD16-64247A1722C6}
+		GUUIDs should be passed with hyphens and curly-braces, e.g. {33BA55AF-3A2D-033D-BD16-64247A1722C6}
 	</li>
 </ul>
 		
@@ -45,14 +45,14 @@ class RouteHome implements IRoute {
 <dl>
 	<dt>GET /api/1.0/identify</dt>
 	<dd>Provision a new identifier.</dd>
-	<dt>PUT /api/1.0/identify/UID</dt>
-	<dd>Register your own UID as an identifier.</dd>
-	<dt>GET /api/1.0/guid?identity=UID</dt>
-	<dd>Register a new UID - GUID will provide it.</dd>
-	<dt>PUT /api/1.0/guid/UID?identity=UID</dt>
-	<dd>Register your own UID.</dt>
-	<dt>DELETE /api/1.0/guid/UID?identity=UID</dt>
-	<dd>Release a GUID you've previously registered.</dd>
+	<dt>PUT /api/1.0/identify/UUID</dt>
+	<dd>Register your own UUID as an identifier.</dd>
+	<dt>GET /api/1.0/guid?identity=UUID</dt>
+	<dd>Register a new UUID - GUUID will provide it.</dd>
+	<dt>PUT /api/1.0/guid/UUID?identity=UUID</dt>
+	<dd>Register your own UUID.</dt>
+	<dt>DELETE /api/1.0/guid/UUID?identity=UUID</dt>
+	<dd>Release a GUUID you've previously registered.</dd>
 </dl>
 
 <h2>API Responses</h2>
@@ -71,6 +71,9 @@ class RouteHome implements IRoute {
 			<li>error: a helpful error message.</li>
 		</ul>
 	</li>
+</ul>
+
+<a href="https://github.com/firebus/GUUID"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
 EOT;
 	}
 }

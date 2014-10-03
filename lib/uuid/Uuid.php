@@ -1,6 +1,6 @@
 <?php
 
-class Guid {
+class Uuid {
 	
 	private $database;
 	
@@ -8,10 +8,10 @@ class Guid {
 		$this->database = $database;
 	}
 	
-	public function guid() {
-		$recycledGuid = $this->database->guid();
-		if ($recycledGuid) {
-			$uuid = $recycledGuid['guid'];
+	public function uuid() {
+		$recycledUuid = $this->database->uuid();
+		if ($recycledUuid) {
+			$uuid = $recycledUuid['uuid'];
 		} elseif (function_exists('com_create_guid')) {
 			$uuid = com_create_guid();
 		} else {

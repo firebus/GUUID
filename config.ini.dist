@@ -1,5 +1,5 @@
 mysql_host = localhost
-mysql_username = guid
+mysql_username = guuid
 mysql_password = changeme
-mysql_database = guid
+mysql_database = guuid
 path_prefix = /
