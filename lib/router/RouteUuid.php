@@ -5,10 +5,11 @@ require_once('IRoute.php');
 class RouteUuid implements IRoute {
 	
 	public function register() {
-		return 'api/1.0/guid';
+		return 'api/1.0/uuid';
 	}
 	
 	public function execute($request, $database, $uuid) {
+		print_r($request);
 		switch ($request->method) {
 			case 'GET':
 				$id = $uuid->uuid();
@@ -16,7 +17,7 @@ class RouteUuid implements IRoute {
 				$result = $database->registerRow($id, $identity);
 				break;
 			case 'PUT':
-				$id = $request->api_id;
+				$id = urldecode($request->api_id);
 				$identity = $request->parameters['identity'];
 				$result = $database->registerRow($id, $identity);
 				break;

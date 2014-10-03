@@ -15,7 +15,7 @@ class RouteIdentify implements IRoute {
 				$result = $database->registerRow($id, 'IDENTITY');
 				break;
 			case 'PUT':
-				$id = $request->api_id;
+				$id = urldecode($request->api_id);
 				$result = $database->registerRow($id, 'IDENTITY');
 				break;
 		}
