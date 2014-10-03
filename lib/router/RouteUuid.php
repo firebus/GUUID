@@ -9,7 +9,6 @@ class RouteUuid implements IRoute {
 	}
 	
 	public function execute($request, $database, $uuid) {
-		print_r($request);
 		switch ($request->method) {
 			case 'GET':
 				$id = $uuid->uuid();
